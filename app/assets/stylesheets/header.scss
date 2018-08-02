@@ -1,0 +1,29 @@
+.header {
+
+  background: $brand-primary;
+  justify-content: normal;
+
+  &__link {
+    color: white;
+    opacity: $opacity-1;
+    text-decoration: none;
+
+    &:hover {
+      color: white;
+      opacity: $opacity-0;
+      text-decoration: none;
+    }
+  }
+
+  &__new-job-btn {
+    background: $brand-secondary-gradient;
+    border: none;
+    color: white;
+    margin-left: auto;
+
+    &:hover {
+      color: $brand-primary;
+    }
+  }
+
+}
