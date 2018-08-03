@@ -51,10 +51,16 @@ end
 jobs = Job.all
 tags = Tag.all
 
-jobs.each do |job|
+def create_job_tag(tags, job)
   tag = tags.sample
   JobTag.create(
     tag_id: tag.id,
     job_id: job.id
   )
+end
+
+jobs.each do |job|
+  create_job_tag(tags, job)
+  create_job_tag(tags, job) if rand(0..10) % 2 == 0
+  create_job_tag(tags, job) if rand(0..10) % 2 == 0
 end

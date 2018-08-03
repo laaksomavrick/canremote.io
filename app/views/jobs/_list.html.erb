@@ -1,6 +1,5 @@
-<% @jobs.each do |job| %>
-  <p><%= link_to job.name, job %></p>
-  <% job.tags.each do |tag| %>
-    <span><%= tag.name %></span>
+<div class="job-list">
+  <% @jobs.each do |job| %>
+    <%= render 'item', job: job %> 
   <% end %>
-<% end %>
+</div>

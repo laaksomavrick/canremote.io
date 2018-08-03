@@ -1,0 +1,19 @@
+<div class="job-item">
+  <div class="job-item__logo-container">
+    <div class="job-item__logo"></div>
+  </div>
+  <div class="job-item__meta-container">
+    <%= link_to job.name, job, class: "job-item__name" %>
+    <div class="job-item__company">
+      <%= job.company.name %>
+    </div>
+    <div class="job-item__tags">
+      <% job.tags.each do |tag| %>
+        <span class="badge badge-pill job-item__tag"><%= tag.name %></span>
+      <% end %>
+    </div>
+  </div>
+  <div class="job-item__posted_at">
+    <%= distance_of_time_in_words(Time.now, job.created_at) %>
+  </div>
+</div>
