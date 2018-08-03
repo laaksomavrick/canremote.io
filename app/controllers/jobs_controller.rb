@@ -1,7 +1,12 @@
 class JobsController < ApplicationController
 
   def index
-    @jobs = Job.includes(:tags).all.order(created_at: :desc)
+    query = params[:search_query]
+    if query
+      @jobs = Job.filtered_list(params[:search_query])
+    else
+      @jobs = Job.list
+    end
   end
 
   def show
