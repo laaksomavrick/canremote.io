@@ -11,7 +11,7 @@ require 'faker'
 # Tags
 
 tags = [
-  :dev,
+  :development,
   :marketing,
   :design,
   :teaching,
@@ -21,46 +21,50 @@ tags = [
 
 tags.each do |tag|
   Tag.create(
-    name: tag
+    name: tag,
+    original: true
   )
 end
 
-# Companies
+if Rails.env.development?
 
-20.times do
-  Company.create(
-    name: Faker::Company.name,
-    email: Faker::Internet.email
-  )
-end
+  # Companies
 
-companies = Company.all
+  20.times do
+    Company.create(
+      name: Faker::Company.name,
+      email: Faker::Internet.email
+    )
+  end
 
-# Jobs
+  companies = Company.all
 
-20.times do
-  Job.create(
-    name: Faker::Job.title,
-    description: Faker::Lorem.paragraphs.join(" "),
-    company_id: companies.sample.id
-  )
-end
+  # Jobs
 
-# Job tags
+  20.times do
+    Job.create(
+      name: Faker::Job.title,
+      description: Faker::Lorem.paragraphs.join(" "),
+      company_id: companies.sample.id
+    )
+  end
 
-jobs = Job.all
-tags = Tag.all
+  # Job tags
 
-def create_job_tag(tags, job)
-  tag = tags.sample
-  JobTag.create(
-    tag_id: tag.id,
-    job_id: job.id
-  )
-end
+  jobs = Job.all
+  tags = Tag.all
 
-jobs.each do |job|
-  create_job_tag(tags, job)
-  create_job_tag(tags, job) if rand(0..10) % 2 == 0
-  create_job_tag(tags, job) if rand(0..10) % 2 == 0
+  def create_job_tag(tags, job)
+    tag = tags.sample
+    JobTag.create(
+      tag_id: tag.id,
+      job_id: job.id
+    )
+  end
+
+  jobs.each do |job|
+    create_job_tag(tags, job)
+    create_job_tag(tags, job) if rand(0..10) % 2 == 0
+    create_job_tag(tags, job) if rand(0..10) % 2 == 0
+  end
 end

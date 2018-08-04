@@ -14,6 +14,6 @@
     </div>
   </div>
   <div class="job-item__posted_at">
-    <%= distance_of_time_in_words(Time.now, job.created_at) %>
+    <%= job.created_at.strftime("%B %-d") %>
   </div>
 </div>

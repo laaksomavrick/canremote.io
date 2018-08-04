@@ -1,12 +1,19 @@
 class JobsController < ApplicationController
 
   def index
-    query = params[:search_query]
-    if query
-      @jobs = Job.filtered_list(params[:search_query])
+    # TODO: comma separated list multiple query?
+    search_query = params[:search_query]
+    if search_query
+      @jobs = Job.filtered_list(search_query)
     else
       @jobs = Job.list
     end
+  end
+
+  def category
+    tag_id = params[:tag_id]
+    @tag = Tag.find(tag_id)
+    @jobs = Job.by_tag(tag_id)
   end
 
   def show
