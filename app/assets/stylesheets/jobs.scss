@@ -1,7 +1,11 @@
+$header-spacing: 40px;
+$header-line-height: 38px;
+
 .search {
 
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: $header-spacing;
+  margin-bottom: $header-spacing;
+  line-height: $header-line-height;
 
   &__form {
     display: flex;
@@ -13,6 +17,14 @@
     color: white;
   }
 
+}
+
+.job-list-header {
+  margin-top: $header-spacing;
+  margin-bottom: $header-spacing;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: $header-line-height;
 }
 
 .job-list {

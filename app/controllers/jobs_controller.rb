@@ -11,9 +11,9 @@ class JobsController < ApplicationController
   end
 
   def category
-    tag_id = params[:tag_id]
-    @tag = Tag.find(tag_id)
-    @jobs = Job.by_tag(tag_id)
+    tag_name = params[:tag_name]
+    @tag = Tag.where(name: tag_name).first
+    @jobs = Job.by_tag(@tag.id)
   end
 
   def show

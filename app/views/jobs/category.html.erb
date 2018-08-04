@@ -1,2 +1,2 @@
-<%= @tag.name %>
-<%= render 'list', locals: { jobs: @jobs } %>
+<%= render 'list_header', text: @tag.name %>
+<%= render 'list', jobs: @jobs %>
