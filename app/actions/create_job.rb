@@ -1,10 +1,10 @@
 
 class CreateJob
   include ActiveModel::Validations
-  attr_accessor :company_name, :company_email, :job_name, :job_description
+  attr_accessor :company_name, :company_email, :job_name, :job_description, :tags
   validates_presence_of :company_name, :company_email, :job_name, :job_description
 
-  def initialize(params)
+  def initialize(params = {})
     @company_name = params[:company_name]
     @company_email = params[:company_email]
     @job_name = params[:job_name]

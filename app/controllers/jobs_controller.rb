@@ -21,16 +21,16 @@ class JobsController < ApplicationController
   end
 
   def new
+    @create_job = CreateJob.new
   end
 
   def create
-    # TODO Virtus; new form obj
-    create_job = CreateJob.new(params)
-    if create_job.valid?
-      job = create_job.do_it
-      render json: job
+    @create_job = CreateJob.new(params)
+    if @create_job.valid?
+      job = @create_job.do_it
+      redirect_to job
     else
-      render json: create_job.errors
+      render 'new'
     end
   end
 
