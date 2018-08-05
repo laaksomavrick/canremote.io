@@ -11,4 +11,9 @@ class Job < ApplicationRecord
     job_name_matches + tag_name_matches
   }
   scope :by_tag, -> (tag_id) { joins(:tags).where(tags: { id: tag_id }) }
+
+  def to_param
+    "#{id}-#{name.gsub(" ", "-")}"
+  end
+
 end
