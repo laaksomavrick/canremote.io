@@ -1,4 +1,4 @@
 <h1>Job#show</h1>
 
 <h3><%= @job.name %></h3>
-<p><%= @job.description %></p>
+<%= raw render_markdown(@job.description) %>
