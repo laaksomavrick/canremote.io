@@ -4,6 +4,24 @@ $header-line-height: 38px;
 $header-font-size: 36px;
 $header-font-weight: 700;
 
+.job-new {
+  margin-bottom: $header-spacing;
+  &__header {
+    margin-top: $header-spacing;
+    margin-bottom: $header-spacing;
+  }
+  &__title {
+    font-size: $header-font-size;
+    font-weight: $header-font-weight;
+    line-height: $header-line-height;
+  }
+  &__submit {
+    background: $brand-secondary;
+    color: white;
+    width: 100%;
+  }
+}
+
 .job-show {
 
   &__header {
@@ -14,6 +32,7 @@ $header-font-weight: 700;
   &__title {
     font-size: $header-font-size;
     font-weight: $header-font-weight;
+    line-height: $header-line-height;
   }
 
   &__company-title {

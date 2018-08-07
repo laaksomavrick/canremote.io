@@ -1,57 +1,61 @@
-<% job_name_error = has_error(@create_job, :job_name) %>
-<% job_description_error = has_error(@create_job, :job_description) %>
-<% company_name_error = has_error(@create_job, :company_name) %>
-<% company_email_error = has_error(@create_job, :company_email) %>
+<div class="job-new">
 
-<% #TODO DRY for these form groups %>
-<% #TODO company website, url to apply, company image, original tag category, highlight, all jobs by $company %>
+  <div class="job-new__header">
+    <div class="job-new__title">
+      New posting
+    </div>
+  </div>
 
-<%= form_tag(controller: "jobs", action: "create", method: "post") do %>
+  <% #TODO company website, url to apply, company image, original tag category, highlight, all jobs by $company %>
 
-  <%= render partial: 'forms/text_field_form_group', 
-    locals: { 
-      name: :job_name, 
-      obj: @create_job, 
-      label: "Job title"
-    } 
-  %>
-
-  <%= render partial: 'forms/text_area_form_group', 
-    locals: { 
-      name: :job_description, 
-      obj: @create_job, 
-      label: "Job description",
-      rows: "10",
-      small: "Use Markdown to format your description."
-    } 
-  %>
-
-  <%= render partial: 'forms/text_field_form_group', 
-    locals: { 
-      name: :company_name, 
-      obj: @create_job, 
-      label: "Company name"
-    } 
-  %>
-
-  <%= render partial: 'forms/text_field_form_group', 
-    locals: { 
-      name: :company_email, 
-      obj: @create_job, 
-      label: "Company email",
-      small: "This will be required to later edit your job posting." 
-    } 
-  %>
+  <%= form_tag(controller: "jobs", action: "create", method: "post") do %>
 
     <%= render partial: 'forms/text_field_form_group', 
-    locals: { 
-      name: :tags, 
-      obj: @create_job, 
-      label: "Tags",
-      placeholder: "rails, css, javascript...",
-      small: "Enter a comma separated list of tags"
-    } 
-  %>
+      locals: { 
+        name: :job_name, 
+        obj: @create_job, 
+        label: "Job title"
+      } 
+    %>
 
-  <%= submit_tag "Create", class: "btn btn-primary" %>
-<% end %>
+    <%= render partial: 'forms/text_area_form_group', 
+      locals: { 
+        name: :job_description, 
+        obj: @create_job, 
+        label: "Job description",
+        rows: "10",
+        small: "Use Markdown to format your description."
+      } 
+    %>
+
+    <%= render partial: 'forms/text_field_form_group', 
+      locals: { 
+        name: :company_name, 
+        obj: @create_job, 
+        label: "Company name"
+      } 
+    %>
+
+    <%= render partial: 'forms/text_field_form_group', 
+      locals: { 
+        name: :company_email, 
+        obj: @create_job, 
+        label: "Company email",
+        small: "This will be required to later edit your job posting." 
+      } 
+    %>
+
+      <%= render partial: 'forms/text_field_form_group', 
+      locals: { 
+        name: :tags, 
+        obj: @create_job, 
+        label: "Tags",
+        placeholder: "rails, css, javascript...",
+        small: "Enter a comma separated list of tags"
+      } 
+    %>
+
+    <%= submit_tag "Create", class: "btn job-new__submit" %>
+  <% end %>
+
+</div>
