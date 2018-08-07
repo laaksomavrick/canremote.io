@@ -4,6 +4,7 @@
 <% company_email_error = has_error(@create_job, :company_email) %>
 
 <% #TODO DRY for these form groups %>
+<% #TODO company website, url to apply, company image, original tag category, highlight, all jobs by $company %>
 
 <h1>Job#new</h1>
 <%= form_tag(controller: "jobs", action: "create", method: "post") do %>
@@ -20,7 +21,7 @@
 
   <div class="form-group">
     <%= label_tag :job_description, "Job description" %>
-    <%= text_area_tag :job_description, @create_job.job_description, class: "form-control #{'is-invalid' if job_description_error}" %>
+    <%= text_area_tag :job_description, @create_job.job_description, rows: "10", class: "form-control #{'is-invalid' if job_description_error}" %>
     <% if job_description_error %>
       <div class="invalid-feedback">
           Please enter a job description.

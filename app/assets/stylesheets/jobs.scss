@@ -1,5 +1,31 @@
-$header-spacing: 40px;
+$header-spacing: 20px;
 $header-line-height: 38px;
+
+$header-font-size: 36px;
+$header-font-weight: 700;
+
+.job-show {
+
+  &__header {
+    margin-top: $header-spacing;
+    margin-bottom: $header-spacing;
+  }
+
+  &__title {
+    font-size: $header-font-size;
+    font-weight: $header-font-weight;
+  }
+
+  &__company-title {
+    font-size: 24px;
+    font-weight: 600;
+  }
+
+  &__description {
+
+  }
+
+}
 
 .search {
 
@@ -22,8 +48,8 @@ $header-line-height: 38px;
 .job-list-header {
   margin-top: $header-spacing;
   margin-bottom: $header-spacing;
-  font-size: 32px;
-  font-weight: 700;
+  font-size: $header-font-size;
+  font-weight: $header-font-weight;
   line-height: $header-line-height;
 }
 

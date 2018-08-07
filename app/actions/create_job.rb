@@ -8,7 +8,7 @@ class CreateJob
     @company_name = params[:company_name]
     @company_email = params[:company_email]
     @job_name = params[:job_name]
-    @job_description = params[:job_description]
+    @job_description = params[:job_description] || default_job_description
     @tags = params[:tags]
   end
 
@@ -43,6 +43,16 @@ class CreateJob
       )
     end
     job
+  end
+
+  def default_job_description
+    """## Summary
+Type a brief summary of your job here.
+
+## Responsibilities
+* Type a list of responsibilities here
+* and here. 
+    """
   end
 
 end

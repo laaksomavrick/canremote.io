@@ -1,4 +1,16 @@
-<h1>Job#show</h1>
+<div class="job-show">
 
-<h3><%= @job.name %></h3>
-<%= raw render_markdown(@job.description) %>
+  <div class="job-show__header">
+    <div class="job-show__title">
+      <%= @job.name %>
+    </div>
+    <div class="job-show__company-title">
+      <%= @job.company.name %>
+    </div>
+  </div>
+
+  <div class="job-show__description">
+    <%= raw render_markdown(@job.description) %>
+  </div>
+
+</div>
