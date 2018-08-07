@@ -46,13 +46,14 @@ class CreateJob
   end
 
   def default_job_description
-    """## Summary
-Type a brief summary of your job here.
+    <<~EOF
+    ## Summary
+    Type a brief summary of your job here.
 
-## Responsibilities
-* Type a list of responsibilities here
-* and here. 
-    """
+    ## Responsibilities
+    * Type a list of responsibilities here
+    * and here. 
+    EOF
   end
 
 end

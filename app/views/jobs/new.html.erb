@@ -6,56 +6,52 @@
 <% #TODO DRY for these form groups %>
 <% #TODO company website, url to apply, company image, original tag category, highlight, all jobs by $company %>
 
-<h1>Job#new</h1>
 <%= form_tag(controller: "jobs", action: "create", method: "post") do %>
 
-  <div class="form-group">
-    <%= label_tag :job_name, "Job title" %>
-    <%= text_field_tag :job_name, @create_job.job_name, class: "form-control #{'is-invalid' if job_name_error }" %>
-    <% if job_name_error %>
-      <div class="invalid-feedback">
-          Please enter a job title.
-      </div>
-    <% end %>
-  </div>
+  <%= render partial: 'forms/text_field_form_group', 
+    locals: { 
+      name: :job_name, 
+      obj: @create_job, 
+      label: "Job title"
+    } 
+  %>
 
-  <div class="form-group">
-    <%= label_tag :job_description, "Job description" %>
-    <%= text_area_tag :job_description, @create_job.job_description, rows: "10", class: "form-control #{'is-invalid' if job_description_error}" %>
-    <% if job_description_error %>
-      <div class="invalid-feedback">
-          Please enter a job description.
-      </div>
-    <% end %>
-  </div>
+  <%= render partial: 'forms/text_area_form_group', 
+    locals: { 
+      name: :job_description, 
+      obj: @create_job, 
+      label: "Job description",
+      rows: "10",
+      small: "Use Markdown to format your description."
+    } 
+  %>
 
-  <div class="form-group">
-    <%= label_tag :company_name, "Company name" %>
-    <%= text_field_tag :company_name, @create_job.company_name, class: "form-control #{'is-invalid' if company_name_error}" %>
-    <% if company_name_error %>
-      <div class="invalid-feedback">
-          Please enter a company name.
-      </div>
-    <% end %>
-  </div>
+  <%= render partial: 'forms/text_field_form_group', 
+    locals: { 
+      name: :company_name, 
+      obj: @create_job, 
+      label: "Company name"
+    } 
+  %>
 
-  <div class="form-group">
-    <%= label_tag :company_email, "Company email" %>
-    <%= text_field_tag :company_email, @create_job.company_email, class: "form-control #{'is-invalid' if company_email_error}" %>
-    <% if company_email_error %>
-      <div class="invalid-feedback">
-          Please enter a company email.
-      </div>
-    <% else %>
-      <small class="form-text text-muted">This will be required to later edit your job posting.</small>
-    <% end %>
-  </div>
+  <%= render partial: 'forms/text_field_form_group', 
+    locals: { 
+      name: :company_email, 
+      obj: @create_job, 
+      label: "Company email",
+      small: "This will be required to later edit your job posting." 
+    } 
+  %>
 
-  <div class="form-group">
-    <%= label_tag :tags, "Tags" %>
-    <%= text_field_tag :tags, @create_job.tags, placeholder: "rails, css, javascript...", class: "form-control" %>
-    <small class="form-text text-muted">Enter a comma separated list of tags</small>
-  </div>
+    <%= render partial: 'forms/text_field_form_group', 
+    locals: { 
+      name: :tags, 
+      obj: @create_job, 
+      label: "Tags",
+      placeholder: "rails, css, javascript...",
+      small: "Enter a comma separated list of tags"
+    } 
+  %>
 
   <%= submit_tag "Create", class: "btn btn-primary" %>
 <% end %>
