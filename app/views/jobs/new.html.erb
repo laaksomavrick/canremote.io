@@ -6,7 +6,7 @@
     </div>
   </div>
 
-  <% #TODO company website, url to apply, company image, original tag category, highlight, all jobs by $company %>
+  <% #TODO original tag category, highlight, all jobs by $company %>
 
   <%= form_tag(controller: "jobs", action: "create", method: "post") do %>
 
@@ -45,7 +45,24 @@
       } 
     %>
 
-      <%= render partial: 'forms/text_field_form_group', 
+    <%= render partial: 'forms/text_field_form_group', 
+      locals: { 
+        name: :company_url, 
+        obj: @create_job, 
+        label: "Company homepage"
+      } 
+    %>
+
+    <%= render partial: 'forms/text_field_form_group', 
+      locals: { 
+        name: :job_url, 
+        obj: @create_job, 
+        label: "Job application URL",
+        small: "Where should someone go to apply?"
+      } 
+    %>
+
+    <%= render partial: 'forms/text_field_form_group', 
       locals: { 
         name: :tags, 
         obj: @create_job, 
