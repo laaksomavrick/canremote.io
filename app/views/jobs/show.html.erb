@@ -7,12 +7,13 @@
     <div class="job-show__company-title">
       <%= @job.company.name %>
     </div>
+    <%= link_to @job.url, @job.url, class: "job-show__company-url" %>
   </div>
 
   <div class="job-show__description">
     <%= raw render_markdown(@job.description) %>
   </div>
-  
-  <!-- company; job url, highlight >
+
+  <%= link_to "Apply", @job.url, class: "btn job-show__submit" %>
 
 </div>

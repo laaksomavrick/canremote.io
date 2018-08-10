@@ -4,6 +4,8 @@ $header-line-height: 38px;
 $header-font-size: 36px;
 $header-font-weight: 700;
 
+$highlight: #FFFDDF;
+
 .job-new {
   margin-bottom: $header-spacing;
   &__header {
@@ -19,6 +21,9 @@ $header-font-weight: 700;
     background: $brand-secondary;
     color: white;
     width: 100%;
+    &:hover {
+      background: darken($brand-secondary, 10%);
+    }
   }
 }
 
@@ -40,8 +45,18 @@ $header-font-weight: 700;
     font-weight: 600;
   }
 
-  &__description {
+  &__company-url {
+    font-size: 20px;
+  }
 
+  &__submit {
+    background: $brand-secondary;
+    color: white;
+    width: 100%;
+    &:hover {
+      background: darken($brand-secondary, 10%);
+      color: white;
+    }
   }
 
 }
@@ -86,6 +101,10 @@ $header-font-weight: 700;
   font-size: 22px;
   min-height: 100px;
   display: flex;
+
+  &--highlight {
+    background: $highlight;
+  }
 
   &__logo-container {
     width: 80px;
@@ -141,6 +160,7 @@ $header-font-weight: 700;
     justify-content: center;
     align-items: center;
     margin-left: 10px;
+    margin-right: 10px;
   }
 
 }
