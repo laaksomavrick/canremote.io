@@ -1,6 +1,12 @@
 <div class="job-item<%= job.highlight ? ' job-item--highlight' : '' %>">
   <div class="job-item__logo-container">
-    <div class="job-item__logo"></div>
+    <% if job.company.picture %>
+      <%= image_tag job.company.picture.file.variant(combine_options: 
+        { auto_orient: true, gravity: "center", resize: "200x200", crop: "200x200+0+0" }),
+        class: "job-item__image" %>
+    <% else %>
+      <div class="job-item__logo"></div>
+    <% end %>
   </div>
   <div class="job-item__meta-container">
     <%= link_to job.name, job, class: "job-item__name" %>

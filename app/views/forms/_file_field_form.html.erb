@@ -1,0 +1,17 @@
+<% small = small ? small : nil %>
+<% placeholder = placeholder ? placeholder : nil %>
+<% error = has_error(obj, name) %>
+
+<div class="form-group">
+  <%= label_tag name, label %>
+  <%= file_field_tag name, class: "form-control-file #{'is-invalid' if error }" %>
+  <% if error %>
+    <div class="invalid-feedback">
+      Please enter a <%= label.downcase %>.
+    </div>
+  <% elsif small %>
+    <small class="form-text text-muted">
+      <%= small %>
+    </small>
+  <% end %>
+</div>
