@@ -37,12 +37,20 @@ class CreateJob
     end
     # Create the company photo if it does not exist
     unless company.picture
+<<<<<<< HEAD
       company.picture = Picture.create(
+=======
+      picture = company.picture = Picture.create(
+>>>>>>> f96a946ce880139ee460943201b557e65c1a8fb1
         name: company.name,
         imageable_type: company.class.name,
         imageable_id: company.id,
       )
+<<<<<<< HEAD
       company.picture.file.attach(@company_photo)
+=======
+      picture.file.attach(@company_photo)
+>>>>>>> f96a946ce880139ee460943201b557e65c1a8fb1
     end
     # Either create or retrieve the tags
     tags = []
