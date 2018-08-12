@@ -1,13 +1,27 @@
 
 class CreateJob
   include ActiveModel::Validations
-  attr_accessor :company_name, :company_email, :company_url, :job_name, :job_description, :job_url, :tags
-  validates_presence_of :company_name, :company_email, :company_url, :job_name, :job_description, :job_url
+  attr_accessor :company_name,
+                :company_email,
+                :company_url,
+                :company_photo,
+                :job_name,
+                :job_description,
+                :job_url,
+                :tags
+  validates_presence_of :company_name,
+                        :company_email,
+                        :company_url,
+                        :company_photo,
+                        :job_name,
+                        :job_description,
+                        :job_url
 
   def initialize(params = {})
     @company_name = params[:company_name]
     @company_email = params[:company_email]
     @company_url = params[:company_url]
+    @company_photo = params[:company_photo]
     @job_name = params[:job_name]
     @job_url = params[:job_url]
     @job_description = params[:job_description] || default_job_description
@@ -20,6 +34,15 @@ class CreateJob
       company.name = @company_name
       company.email = @company_email
       company.url = @company_url
+    end
+    # Create the company photo if it does not exist
+    unless company.picture
+      company.picture = Picture.create(
+        name: company.name,
+        imageable_type: company.class.name,
+        imageable_id: company.id,
+      )
+      company.picture.file.attach(@company_photo)
     end
     # Either create or retrieve the tags
     tags = []

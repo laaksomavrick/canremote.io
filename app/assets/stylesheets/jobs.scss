@@ -121,6 +121,12 @@ $highlight: #FFFDDF;
     background: $brand-primary;
   }
 
+  &__image {
+    width: 70px;
+    height: 70px;
+    background: transparent;
+  }
+
   &__meta-container {
     flex: 1;
     min-height: 80px;

@@ -8,7 +8,7 @@
 
   <% #TODO original tag category, highlight, all jobs by $company %>
 
-  <%= form_tag(controller: "jobs", action: "create", method: "post") do %>
+  <%= form_tag({ controller: "jobs", action: "create", method: "post" }, multipart: true) do %>
 
     <%= render partial: 'forms/text_field_form_group', 
       locals: { 
@@ -50,6 +50,15 @@
         name: :company_url, 
         obj: @create_job, 
         label: "Company homepage"
+      } 
+    %>
+    
+    <%= render partial: 'forms/file_field_form', 
+      locals: { 
+        name: :company_photo, 
+        obj: @create_job, 
+        label: "Company photo",
+        small: "This will appear beside your job post."
       } 
     %>
 
