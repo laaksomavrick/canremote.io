@@ -14,7 +14,8 @@
       locals: { 
         name: :job_name, 
         obj: @create_job, 
-        label: "Job title"
+        label: "Job title",
+        placeholder: "ie. Senior Software Developer"
       } 
     %>
 
@@ -26,6 +27,16 @@
         rows: "10",
         small: "Use Markdown to format your description."
       } 
+    %>
+
+    <%= render partial: 'forms/select_form_group',
+      locals: {
+        name: :job_tag,
+        obj: @create_job,
+        options: required_tags_for_select,
+        label: "Job category",
+        small: "Select the category this job will appear in"
+      }
     %>
 
     <%= render partial: 'forms/text_field_form_group', 
@@ -53,7 +64,7 @@
       } 
     %>
     
-    <%= render partial: 'forms/file_field_form', 
+    <%= render partial: 'forms/file_field_form_group', 
       locals: { 
         name: :company_photo, 
         obj: @create_job, 
@@ -77,7 +88,7 @@
         obj: @create_job, 
         label: "Tags",
         placeholder: "rails, css, javascript...",
-        small: "Enter a comma separated list of tags"
+        small: "Enter a comma separated list of tags. These will be indexed for searches."
       } 
     %>
 
