@@ -14,7 +14,7 @@
       <%= render partial: 'forms/text_field_form_group', 
         locals: { 
           name: :job_name, 
-          obj: @create_job, 
+          obj: @job_form, 
           label: "Job title",
           placeholder: "ie. Senior Software Developer",
           small: "This is the title that will appear in the list of postings",
@@ -25,7 +25,7 @@
       <%= render partial: 'forms/select_form_group',
         locals: {
           name: :job_tag,
-          obj: @create_job,
+          obj: @job_form,
           options: required_tags_for_select,
           label: "Job category",
           small: "Select the category this job will appear in",
@@ -38,7 +38,7 @@
     <%= render partial: 'forms/text_area_form_group', 
       locals: { 
         name: :job_description, 
-        obj: @create_job, 
+        obj: @job_form, 
         label: "Job description",
         rows: "10",
         small: "Use Markdown to format your description."
@@ -49,7 +49,7 @@
       <%= render partial: 'forms/text_field_form_group', 
         locals: { 
           name: :company_name, 
-          obj: @create_job, 
+          obj: @job_form, 
           label: "Company name",
           col: "col-md-6"
         } 
@@ -58,7 +58,7 @@
       <%= render partial: 'forms/file_field_form_group', 
         locals: { 
           name: :company_photo, 
-          obj: @create_job, 
+          obj: @job_form, 
           label: "Logo",
           small: "This will appear beside your job post.",
           col: "col-md-6"
@@ -70,7 +70,7 @@
       <%= render partial: 'forms/text_field_form_group', 
         locals: { 
           name: :company_email, 
-          obj: @create_job, 
+          obj: @job_form, 
           label: "Company email",
           small: "This will be required to later edit your job posting.",
           col: "col-md-6" 
@@ -80,7 +80,7 @@
       <%= render partial: 'forms/text_field_form_group', 
         locals: { 
           name: :company_url, 
-          obj: @create_job, 
+          obj: @job_form, 
           label: "Company homepage",
           col: "col-md-6"
         } 
@@ -91,7 +91,7 @@
     <%= render partial: 'forms/text_field_form_group', 
       locals: { 
         name: :job_url, 
-        obj: @create_job, 
+        obj: @job_form, 
         label: "Job application URL",
         small: "Where should someone go to apply?"
       } 
@@ -100,7 +100,7 @@
     <%= render partial: 'forms/check_box_form_group', 
       locals: { 
         name: :highlight, 
-        obj: @create_job, 
+        obj: @job_form, 
         label: "Highlight",
         small: "Jobs that are highlighted are more visible"
       } 
@@ -109,7 +109,7 @@
     <%= render partial: 'forms/text_field_form_group', 
       locals: { 
         name: :tags, 
-        obj: @create_job, 
+        obj: @job_form, 
         label: "Tags",
         placeholder: "rails, css, javascript...",
         small: "Enter a comma separated list of tags. These will be indexed for searches."

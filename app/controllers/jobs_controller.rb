@@ -21,13 +21,13 @@ class JobsController < ApplicationController
   end
 
   def new
-    @create_job = CreateJob.new
+    @job_form = JobForm.new
   end
 
   def create
-    @create_job = CreateJob.new(params)
-    if @create_job.valid?
-      job = @create_job.do_it
+    @job_form = JobForm.new(params)
+    if @job_form.valid?
+      job = @job_form.call
       redirect_to job
     else
       render 'new'

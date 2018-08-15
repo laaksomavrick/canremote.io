@@ -1,6 +1,8 @@
 
-class CreateJob
+class JobForm
+
   include ActiveModel::Validations
+
   attr_accessor :company_name,
                 :company_email,
                 :company_url,
@@ -11,6 +13,7 @@ class CreateJob
                 :job_tag,
                 :highlight,
                 :tags
+
   validates_presence_of :company_name,
                         :company_email,
                         :company_url,
@@ -34,15 +37,22 @@ class CreateJob
     @tags = params[:tags]
   end
 
-  def do_it
-    # TODO: split this up into manageable chunks
-    # Either create or retrieve the company
+  def call
+    company = handle_company
+    tags = handle_tags
+    job = handle_job
+    handle_job_tags(job, tags)
+    job
+  end
+
+  private
+
+  def handle_company
     company = Company.where(email: @company_email).first_or_create do |company|
       company.name = @company_name
       company.email = @company_email
       company.url = @company_url
     end
-    # Create the company photo if it does not exist
     unless company.picture
       company.picture = Picture.create(
         name: company.name,
@@ -51,7 +61,10 @@ class CreateJob
       )
       company.picture.file.attach(@company_photo)
     end
-    # Either create or retrieve the optional tags
+    company
+  end
+
+  def handle_tags
     tags = []
     if @tags
       # TODO: tag whitelist?
@@ -62,31 +75,32 @@ class CreateJob
         end
       end
     end
-    # Create the Job with company_id
-    job = Job.create(
+    tags
+  end
+
+  def handle_job
+    Job.create(
       name: @job_name,
       description: @job_description,
       url: @job_url,
       company_id: company.id,
       highlight: @highlight
     )
-    # Associate the required job tag
+  end
+
+  def handle_job_tags(job, tags)
     required_tag_id = Tag.where(name: @job_tag, original: true).first.id
     JobTag.create(
       tag_id: required_tag_id,
       job_id: job.id
     )
-    # Associate the tags in JobTag
     tags.each do |tag|
       JobTag.create(
         tag_id: tag.id,
         job_id: job.id
       )
     end
-    job
-  end
-
-  private
+  end 
 
   def set_highlight(value)
     value == 'highlight'
