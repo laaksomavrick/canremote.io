@@ -10,14 +10,30 @@
 
   <%= form_tag({ controller: "jobs", action: "create", method: "post" }, multipart: true) do %>
 
-    <%= render partial: 'forms/text_field_form_group', 
-      locals: { 
-        name: :job_name, 
-        obj: @create_job, 
-        label: "Job title",
-        placeholder: "ie. Senior Software Developer"
-      } 
-    %>
+    <div class="form-row">
+      <%= render partial: 'forms/text_field_form_group', 
+        locals: { 
+          name: :job_name, 
+          obj: @create_job, 
+          label: "Job title",
+          placeholder: "ie. Senior Software Developer",
+          small: "This is the title that will appear in the list of postings",
+          col: "col-md-6"
+        } 
+      %>
+
+      <%= render partial: 'forms/select_form_group',
+        locals: {
+          name: :job_tag,
+          obj: @create_job,
+          options: required_tags_for_select,
+          label: "Job category",
+          small: "Select the category this job will appear in",
+          col: "col-md-6"
+        }
+      %>
+    </div>
+
 
     <%= render partial: 'forms/text_area_form_group', 
       locals: { 
@@ -29,49 +45,48 @@
       } 
     %>
 
-    <%= render partial: 'forms/select_form_group',
-      locals: {
-        name: :job_tag,
-        obj: @create_job,
-        options: required_tags_for_select,
-        label: "Job category",
-        small: "Select the category this job will appear in"
-      }
-    %>
+    <div class="form-row">
+      <%= render partial: 'forms/text_field_form_group', 
+        locals: { 
+          name: :company_name, 
+          obj: @create_job, 
+          label: "Company name",
+          col: "col-md-6"
+        } 
+      %>
 
-    <%= render partial: 'forms/text_field_form_group', 
-      locals: { 
-        name: :company_name, 
-        obj: @create_job, 
-        label: "Company name"
-      } 
-    %>
+      <%= render partial: 'forms/file_field_form_group', 
+        locals: { 
+          name: :company_photo, 
+          obj: @create_job, 
+          label: "Logo",
+          small: "This will appear beside your job post.",
+          col: "col-md-6"
+        } 
+      %>
+    </div>
 
-    <%= render partial: 'forms/text_field_form_group', 
-      locals: { 
-        name: :company_email, 
-        obj: @create_job, 
-        label: "Company email",
-        small: "This will be required to later edit your job posting." 
-      } 
-    %>
+    <div class="form-row">
+      <%= render partial: 'forms/text_field_form_group', 
+        locals: { 
+          name: :company_email, 
+          obj: @create_job, 
+          label: "Company email",
+          small: "This will be required to later edit your job posting.",
+          col: "col-md-6" 
+        } 
+      %>
 
-    <%= render partial: 'forms/text_field_form_group', 
-      locals: { 
-        name: :company_url, 
-        obj: @create_job, 
-        label: "Company homepage"
-      } 
-    %>
-    
-    <%= render partial: 'forms/file_field_form_group', 
-      locals: { 
-        name: :company_photo, 
-        obj: @create_job, 
-        label: "Company photo",
-        small: "This will appear beside your job post."
-      } 
-    %>
+      <%= render partial: 'forms/text_field_form_group', 
+        locals: { 
+          name: :company_url, 
+          obj: @create_job, 
+          label: "Company homepage",
+          col: "col-md-6"
+        } 
+      %>
+    </div>
+
 
     <%= render partial: 'forms/text_field_form_group', 
       locals: { 

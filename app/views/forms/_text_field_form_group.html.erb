@@ -1,8 +1,9 @@
 <% small = small ? small : nil %>
 <% placeholder = placeholder ? placeholder : nil %>
+<% col = col ? col : '' %>
 <% error = has_error(obj, name) %>
 
-<div class="form-group">
+<div class="form-group <%= col %>">
   <%= label_tag name, label %>
   <%= text_field_tag name, obj.send(name), placeholder: placeholder, class: "form-control #{'is-invalid' if error }" %>
   <% if error %>

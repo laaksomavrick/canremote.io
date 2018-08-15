@@ -1,9 +1,10 @@
 <% small = small ? small : nil %>
 <% placeholder = placeholder ? placeholder : nil %>
+<% col = col ? col : '' %>
 <% options = options ? options : nil %>
 <% error = has_error(obj, name) %>
 
-<div class="form-group">
+<div class="form-group <%= col %>">
   <%= label_tag name, label %>
   <%= select_tag(name, options_for_select(options, obj.send(name)), class: "form-control") %>
   <% if error %>
