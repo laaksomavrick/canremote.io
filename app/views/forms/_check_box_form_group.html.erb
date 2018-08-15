@@ -1,0 +1,18 @@
+<% small = small ? small : nil %>
+<% placeholder = placeholder ? placeholder : nil %>
+<% options = options ? options : nil %>
+<% error = has_error(obj, name) %>
+
+<div class="form-group">
+  <%= label_tag name, label %>
+  <%= check_box_tag name, name, obj.send(name)%>
+  <% if error %>
+    <div class="invalid-feedback">
+      Please enter a <%= label.downcase %>.
+    </div>
+  <% elsif small %>
+    <small class="form-text text-muted">
+      <%= small %>
+    </small>
+  <% end %>
+</div>

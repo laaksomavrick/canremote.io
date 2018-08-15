@@ -45,7 +45,8 @@ if Rails.env.development?
     Job.create(
       name: Faker::Job.title,
       description: Faker::Lorem.paragraphs.join(" "),
-      company_id: companies.sample.id
+      company_id: companies.sample.id,
+      highlight: rand(0..10) % 5 == 0
     )
   end
 

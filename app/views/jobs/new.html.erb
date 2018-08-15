@@ -82,6 +82,15 @@
       } 
     %>
 
+    <%= render partial: 'forms/check_box_form_group', 
+      locals: { 
+        name: :highlight, 
+        obj: @create_job, 
+        label: "Highlight",
+        small: "Jobs that are highlighted are more visible"
+      } 
+    %>
+
     <%= render partial: 'forms/text_field_form_group', 
       locals: { 
         name: :tags, 

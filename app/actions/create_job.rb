@@ -9,6 +9,7 @@ class CreateJob
                 :job_description,
                 :job_url,
                 :job_tag,
+                :highlight,
                 :tags
   validates_presence_of :company_name,
                         :company_email,
@@ -17,7 +18,8 @@ class CreateJob
                         :job_name,
                         :job_description,
                         :job_url,
-                        :job_tag
+                        :job_tag,
+                        :highlight
 
   def initialize(params = {})
     @company_name = params[:company_name]
@@ -28,6 +30,7 @@ class CreateJob
     @job_url = params[:job_url]
     @job_description = params[:job_description] || default_job_description
     @job_tag = params[:job_tag]
+    @highlight = set_highlight(params[:highlight])
     @tags = params[:tags]
   end
 
@@ -64,7 +67,8 @@ class CreateJob
       name: @job_name,
       description: @job_description,
       url: @job_url,
-      company_id: company.id
+      company_id: company.id,
+      highlight: @highlight
     )
     # Associate the required job tag
     required_tag_id = Tag.where(name: @job_tag, original: true).first.id
@@ -80,6 +84,12 @@ class CreateJob
       )
     end
     job
+  end
+
+  private
+
+  def set_highlight(value)
+    value == 'highlight'
   end
 
   def default_job_description
