@@ -7,7 +7,7 @@
     <div class="job-show__company-title">
       <%= @job.company.name %>
     </div>
-    <%= link_to @job.url, @job.url, class: "job-show__company-url" %>
+    <%= link_to @job.company.url, @job.company.url, class: "job-show__company-url" %>
   </div>
 
   <div class="job-show__description">

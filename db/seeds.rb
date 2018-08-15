@@ -33,7 +33,8 @@ if Rails.env.development?
   20.times do
     Company.create(
       name: Faker::Company.name,
-      email: Faker::Internet.email
+      email: Faker::Internet.email,
+      url: Faker::Internet.url
     )
   end
 
@@ -44,7 +45,7 @@ if Rails.env.development?
   20.times do
     Job.create(
       name: Faker::Job.title,
-      description: Faker::Lorem.paragraphs.join(" "),
+      description: Faker::Markdown.sandwich(8,4),
       company_id: companies.sample.id,
       highlight: rand(0..10) % 5 == 0
     )
