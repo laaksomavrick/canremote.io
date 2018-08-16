@@ -1,7 +1,13 @@
 .header {
 
-  background: $brand-primary;
+  background: $brand-primary-gradient;
   justify-content: normal;
+
+  &__link-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 1;
+  }
 
   &__link {
     color: white;
@@ -27,18 +33,6 @@
       color: white;
       opacity: $opacity-0;
       text-decoration: none;
-    }
-  }
-
-  &__new-job-btn {
-    background: $brand-secondary-gradient;
-    border: none;
-    color: white;
-    margin-left: auto;
-
-    &:hover {
-      color: white;
-      box-shadow: 0 0 18px $brand-tertiary;
     }
   }
 

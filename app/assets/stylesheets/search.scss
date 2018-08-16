@@ -1,0 +1,19 @@
+.search {
+
+  width: 40%;
+  min-width: 250px;
+
+  &__form {
+    display: flex;
+  }
+
+  &__btn {
+    margin-left: 10px;
+    background: $brand-secondary;
+    color: white;
+    &:hover {
+      background: darken($brand-secondary, $darken);
+    }
+  }
+
+}

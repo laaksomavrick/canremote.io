@@ -61,24 +61,6 @@ $highlight: #FFFDDF;
 
 }
 
-.search {
-
-  margin-top: $header-spacing;
-  margin-bottom: $header-spacing;
-  line-height: $header-line-height;
-
-  &__form {
-    display: flex;
-  }
-
-  &__btn {
-    margin-left: 10px;
-    background: $brand-secondary;
-    color: white;
-  }
-
-}
-
 .job-list-header {
   margin-top: $header-spacing;
   margin-bottom: $header-spacing;
