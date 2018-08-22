@@ -1,24 +1,7 @@
-# README
+# job-board
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+A job board built with full stack Rails. Just for fun.
 
-Things you may want to cover:
+![alt text](https://raw.githubusercontent.com/laaksomavrick/job-board/master/app/assets/images/main.png)
 
-* Ruby version
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
