@@ -1,6 +1,10 @@
 .marketing-jumbo {
 
-  background: transparent;
+  background-image: image-url("header_2.jpg");
+  background-position: 50%;
+  background-size: cover;
+  color: $brand-tertiary;
+  border-radius: 0px;
 
   & > * {
     margin-top: 10px;
@@ -16,7 +20,8 @@
   &__tagline {
     font-weight: 600;
     font-size: 32px;
-    line-height: 38px
+    line-height: 38px;
+    text-shadow: $text-shadow;
   }
 
   &__btn-container {
@@ -27,9 +32,9 @@
   }
 
   &__btn {
-    background: $brand-secondary-gradient;
+    background: $brand-secondary;
     border: none;
-    color: white;
+    color: $brand-tertiary;
     width: 100%;
     max-width: 600px;
     height: 40px;
@@ -38,8 +43,9 @@
     align-items: center;
 
     &:hover {
-      color: white;
-      box-shadow: 0 0 18px $brand-tertiary;
+      color: $brand-tertiary;
+      background: darken($brand-secondary, $darken);
+      /*box-shadow: 0 0 18px $brand-tertiary;*/
     }
   }
 

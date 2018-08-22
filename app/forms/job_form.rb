@@ -67,7 +67,7 @@ class JobForm
   def handle_tags
     tags = []
     if @tags
-      # TODO: tag whitelist?
+      # TODO: tag $brand-tertiarylist?
       names = @tags.split(/\s*,\s*/)
       names.each do |name|
         tags << Tag.where(name: name).first_or_create do |tag|

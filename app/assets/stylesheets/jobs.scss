@@ -19,7 +19,7 @@ $highlight: #FFFDDF;
   }
   &__submit {
     background: $brand-secondary;
-    color: white;
+    color: $brand-tertiary;
     width: 100%;
     &:hover {
       background: darken($brand-secondary, 10%);
@@ -51,11 +51,11 @@ $highlight: #FFFDDF;
 
   &__submit {
     background: $brand-secondary;
-    color: white;
+    color: $brand-tertiary;
     width: 100%;
     &:hover {
       background: darken($brand-secondary, 10%);
-      color: white;
+      color: $brand-tertiary;
     }
   }
 
@@ -73,7 +73,7 @@ $highlight: #FFFDDF;
 
   & > * {
     padding: 10px 0px 10px 0px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid $border-gray;
   }
 
 }
@@ -139,7 +139,7 @@ $highlight: #FFFDDF;
 
   &__tag {
     background: $brand-secondary;
-    color: white;
+    color: $brand-tertiary;
   }
 
   &__posted_at {

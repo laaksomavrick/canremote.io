@@ -1,16 +1,30 @@
 .header {
 
-  $transition: all .15s ease-in-out;
+  $transition: all .1s ease-in-out;
 
-  color: $brand-primary;
+  color: $brand-tertiary;
   background: transparent;
   justify-content: normal;
   transition: $transition;
 
+  position: fixed;
+  display: flex;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+
   &--scrolled {
-    color: white;
-    background: $brand-primary-gradient;
+    color: $brand-primary;
+    background: $brand-tertiary;
     transition: $transition;
+    box-shadow: 0 0 0 1px $border-gray;
+  }
+
+  &__inner {
+    display: flex;
+    padding: 0.5rem 1rem;
+    align-items: center;
   }
 
   &__link-container {

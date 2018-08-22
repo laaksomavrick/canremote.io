@@ -1,6 +1,7 @@
-$brand-primary: #292961;
-$brand-secondary: #FF4E50;
-$brand-tertiary: #F9D423;
+$brand-primary: #476b71;
+$brand-secondary: #b84f47;
+$brand-tertiary: #fcfcfc;
+$border-gray: #e6e6e6;
 
 $brand-secondary-gradient: linear-gradient(225deg, $brand-tertiary, $brand-secondary);
 $brand-primary-gradient: linear-gradient(270deg, $brand-primary, lighten($brand-primary, 10%));
@@ -9,3 +10,5 @@ $opacity-0: 1;
 $opacity-1: 0.8;
 
 $darken: 5%;
+
+$text-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
